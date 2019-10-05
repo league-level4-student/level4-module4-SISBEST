@@ -23,12 +23,59 @@ public class EncapsulateTheData {
 	//2. Create a new JUnit Test case and write tests to verify that 
 	//   the member variables' getters and setters are working
 	
-	int itemsReceived; //must not be negative. All negative arguments get set to 0.
-	float degreesTurned; //must be locked between 0.0 and 360.0 inclusive.
-	String nomenclature = " "; //must not be set to a blank string. Blank Strings get set to a space
-	Object memberObj;  //must not be a String.  If it is a String, set it equal to a new Object();
+	private int itemsReceived; //must not be negative. All negative arguments get set to 0.
+	private float degreesTurned; //must be locked between 0.0 and 360.0 inclusive.
+	private String nomenclature = " "; //must not be set to a blank string. Blank Strings get set to a space
+	private Object memberObj;  //must not be a String.  If it is a String, set it equal to a new Object();
 	
 	public static void main(String[] args) {
-		
+
+	}
+	void setir(int n) {
+		if(n<0) {
+			itemsReceived = 0;
+		}
+		else {
+			itemsReceived = n;
+		}
+	}
+	void setdeg(float n) {
+		if(n<0) {
+			degreesTurned = 0;
+		}
+		else if(n>360){
+			degreesTurned = 360;
+		}
+		else {
+			degreesTurned = n;
+		}
+	}
+	void setnmc(String n) {
+		if(n == "") {
+			nomenclature = " ";
+		}
+		else {
+			nomenclature = n;
+		}
+	}
+	public <Template> void setmo(Template t) {
+		if(t == "") {
+			memberObj = new Object();
+		}
+		else {
+			memberObj = t;
+		}
+	}
+	int getir() {
+		return itemsReceived;
+	}
+	float getdeg() {
+		return degreesTurned;
+	}
+	String getnmc() {
+		return nomenclature;
+	}
+	Object getmo() {
+		return memberObj;
 	}
 }
